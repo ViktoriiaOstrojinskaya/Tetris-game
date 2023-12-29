@@ -3,23 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
     <title>Tetris 🤖</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1 class="title">TETRIS 🤖</h1>
     <div class="game">
-      <div class="board">
-        <p class="board-score">
-          Your score: <span class="board-score-number">0</span>
-        </p>
-        <p class="board-level">
-          Level: <span class="board-level-number">beginner</span>
-        </p>
-      </div>
       <div class="tetris"></div>
+
+      <div class="wrapper">
+        <div class="board">
+          <p class="board-score">
+            Your score: <span class="board-score-number">0</span>
+          </p>
+          <p class="board-level">
+            Level: <span class="board-level-number">beginner</span>
+          </p>
+        </div>
+
+        <div class="controllers">
+          <div class="controllers-main">
+            <button class="controllers-btn down" type="button">
+              <span class="material-symbols-outlined"> arrow_downward </span>
+            </button>
+            <button class="controllers-btn rotate" type="button">
+              <span class="material-symbols-outlined"> refresh </span>
+            </button>
+            <button class="controllers-btn left" type="button">
+              <span class="material-symbols-outlined"> arrow_back </span>
+            </button>
+            <button class="controllers-btn right" type="button">
+              <span class="material-symbols-outlined"> arrow_forward </span>
+            </button>
+          </div>
+
+          <div class="controllers-additional">
+            <button class="controllers-btn pause" type="button">PAUSE</button>
+            <button
+              data-id="btn-restart"
+              class="controllers-btn restart"
+              type="button"
+            >
+              RESTART
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script src="main.js"></script>
+    <div class="game-over">
+      <div class="game-over-board">
+        <h2 class="game-over-title">Game over 🚀</h2>
+        <p class="game-over-score">
+          Your score: <span class="game-over-score-number">0</span>
+        </p>
+        <p class="game-over-level">
+          Your level: <span class="game-over-level-number">beginner</span>
+        </p>
+        <button class="game-over-restart">RESTART</button>
+      </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
   </body>
 </html>
