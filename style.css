@@ -10,7 +10,6 @@ ul {
 body {
   display: flex;
   justify-content: center;
-
   height: 100vh;
   user-select: none;
   background-size: cover;
@@ -22,9 +21,7 @@ body {
 }
 
 .title {
-  position: fixed;
-  top: 30px;
-  left: 50px;
+  padding: 20px;
   font-family: sans-serif;
   font-size: 40px;
   line-height: 1.5;
@@ -165,13 +162,11 @@ body {
   text-transform: uppercase;
 }
 
-.game-over-score,
-.game-over-level {
+.game-over-score {
   text-align: center;
 }
 
-.game-over-score-number,
-.game-over-level-number {
+.game-over-score-number {
   text-decoration: underline;
 }
 

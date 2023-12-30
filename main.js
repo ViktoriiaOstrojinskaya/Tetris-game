@@ -30,12 +30,23 @@ function init() {
 
 // Ketdown events
 document.addEventListener('keydown', onKeyDown);
-const removeControl = document.querySelector('.controllers');
-removeControl.addEventListener('click', onController);
-
 btnRestart.addEventListener('click', function () {
   init();
 });
+
+const downControl = document.querySelector('#down');
+const rotateControl = document.querySelector('#rotate');
+const leftControl = document.querySelector('#left');
+const rightControl = document.querySelector('#right');
+const pauseControl = document.querySelector('#pause');
+const restartControl = document.querySelector('#restart');
+
+downControl.addEventListener('click', () => moveTetrominoDown());
+rotateControl.addEventListener('click', () => rotateTetromino());
+leftControl.addEventListener('click', () => moveTetrominoLeft());
+rightControl.addEventListener('click', () => moveTetrominoRight());
+pauseControl.addEventListener('click', () => togglePauseGame());
+restartControl.addEventListener('click', () => gameOver());
 
 function togglePauseGame() {
   isPaused = !isPaused;
@@ -44,23 +55,6 @@ function togglePauseGame() {
     stopLoop();
   } else {
     startLoop();
-  }
-}
-
-function onController(event) {
-  let element = event.target;
-  if (element.closest('.down')) {
-    moveTetrominoDown();
-  } else if (element.closest('.left')) {
-    moveTetrominoLeft();
-  } else if (element.closest('.right')) {
-    moveTetrominoRight();
-  } else if (element.closest('.rotate')) {
-    rotateTetromino();
-  } else if (element.closest('.pause')) {
-    togglePauseGame();
-  } else if (element.closest('.restart')) {
-    gameOver();
   }
 }
 
@@ -138,13 +132,12 @@ function generatePlayfield() {
 function generateTetromino() {
   const nameTetro = getRandomElement(TETROMINO_NAMES);
   const matrixTetro = TETROMINOES[nameTetro];
+  const colorTetro = getRandomColor();
 
   const rowTetro = -2;
   const columnTetro = Math.floor(
     PLAYFIELD_COLUMNS / 2 - matrixTetro.length / 2
   );
-
-  const colorTetro = getRandomColor();
 
   tetromino = {
     name: nameTetro,
@@ -372,23 +365,3 @@ function isOutsideOfGameBoard(row, column) {
 function hasCollisions(row, column) {
   return playfield[tetromino.row + row]?.[tetromino.column + column];
 }
-
-// function getLevel(score) {
-//   switch (score) {
-//     case score <= 10:
-//       level = "beginner";
-//       break;
-//     case score >= 25:
-//       level = "intermediate";
-//       break;
-//     case score >= 35:
-//       level = "advanced";
-//       break;
-//     case score >= 45:
-//       level = "expert";
-//       break;
-//     default:
-//       level = "beginner";
-//   }
-//   document.querySelector(".board-level-number").innerHTML = level;
-// }

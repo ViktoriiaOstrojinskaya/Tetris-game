@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tetris 🤖</title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
-    <title>Tetris 🤖</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -20,34 +20,29 @@
           <p class="board-score">
             Your score: <span class="board-score-number">0</span>
           </p>
-          <p class="board-level">
-            Level: <span class="board-level-number">beginner</span>
-          </p>
         </div>
 
         <div class="controllers">
           <div class="controllers-main">
-            <button class="controllers-btn down" type="button">
+            <button id="down" class="controllers-btn" type="button">
               <span class="material-symbols-outlined"> arrow_downward </span>
             </button>
-            <button class="controllers-btn rotate" type="button">
+            <button id="rotate" class="controllers-btn" type="button">
               <span class="material-symbols-outlined"> refresh </span>
             </button>
-            <button class="controllers-btn left" type="button">
+            <button id="left" class="controllers-btn" type="button">
               <span class="material-symbols-outlined"> arrow_back </span>
             </button>
-            <button class="controllers-btn right" type="button">
+            <button id="right" class="controllers-btn" type="button">
               <span class="material-symbols-outlined"> arrow_forward </span>
             </button>
           </div>
 
           <div class="controllers-additional">
-            <button class="controllers-btn pause" type="button">PAUSE</button>
-            <button
-              data-id="btn-restart"
-              class="controllers-btn restart"
-              type="button"
-            >
+            <button id="pause" class="controllers-btn" type="button">
+              PAUSE
+            </button>
+            <button id="restart" class="controllers-btn" type="button">
               RESTART
             </button>
           </div>
@@ -60,9 +55,6 @@
         <h2 class="game-over-title">Game over 🚀</h2>
         <p class="game-over-score">
           Your score: <span class="game-over-score-number">0</span>
-        </p>
-        <p class="game-over-level">
-          Your level: <span class="game-over-level-number">beginner</span>
         </p>
         <button class="game-over-restart">RESTART</button>
       </div>
