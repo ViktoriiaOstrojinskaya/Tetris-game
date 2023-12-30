@@ -41,7 +41,7 @@ const rightControl = document.querySelector('#right');
 const pauseControl = document.querySelector('#pause');
 const restartControl = document.querySelector('#restart');
 
-downControl.addEventListener('click', () => moveTetrominoDown());
+downControl.addEventListener('click', () => dropTetrominoDown());
 rotateControl.addEventListener('click', () => rotateTetromino());
 leftControl.addEventListener('click', () => moveTetrominoLeft());
 rightControl.addEventListener('click', () => moveTetrominoRight());
@@ -132,7 +132,6 @@ function generatePlayfield() {
 function generateTetromino() {
   const nameTetro = getRandomElement(TETROMINO_NAMES);
   const matrixTetro = TETROMINOES[nameTetro];
-  const colorTetro = getRandomColor();
 
   const rowTetro = -2;
   const columnTetro = Math.floor(
@@ -144,7 +143,6 @@ function generateTetromino() {
     matrix: matrixTetro,
     row: rowTetro,
     column: columnTetro,
-    color: colorTetro,
   };
 }
 
@@ -155,18 +153,13 @@ function drawPlayField() {
     for (let column = 0; column < PLAYFIELD_COLUMNS; column++) {
       const name = playfield[row][column];
       const cellIndex = convertPositionToIndex(row, column);
-      if (name) {
-        cells[cellIndex].classList.add(name);
-      } else {
-        cells[cellIndex].style.removeProperty('background');
-      }
+      cells[cellIndex].classList.add(name);
     }
   }
 }
 
 function drawTetromino() {
   const name = tetromino.name;
-  const color = tetromino.color;
   const tetrominoMatrixSize = tetromino.matrix.length;
 
   for (let row = 0; row < tetrominoMatrixSize; row++) {
@@ -182,7 +175,6 @@ function drawTetromino() {
         tetromino.column + column
       );
       cells[cellIndex].classList.add(name);
-      cells[cellIndex].style.background = color;
     }
   }
 }
@@ -219,16 +211,6 @@ function countScore(destroyLines) {
 function gameOver() {
   stopLoop();
   gameOverBlock.style.display = 'flex';
-}
-
-function getRandomColor() {
-  return (
-    '#' +
-    Math.floor(Math.random() * 16777215)
-      .toString(16)
-      .padStart(6, '0')
-      .toUpperCase()
-  );
 }
 
 function getRandomElement(array) {

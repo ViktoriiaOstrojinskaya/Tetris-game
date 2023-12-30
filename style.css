@@ -189,3 +189,26 @@ body {
 .game-over-restart:focus {
   background-color: #2c2b2a;
 }
+
+.tetris .O {
+  background: rgb(0, 255, 255);
+}
+
+.tetris .L {
+  background: rgb(255, 255, 0);
+}
+.tetris .J {
+  background: rgb(0, 255, 0);
+}
+.tetris .S {
+  background: rgb(255, 0, 0);
+}
+.tetris .Z {
+  background: rgb(0, 0, 255);
+}
+.tetris .T {
+  background: rgb(255, 127, 0);
+}
+.tetris .I {
+  background: rgb(127, 127, 127);
+}
